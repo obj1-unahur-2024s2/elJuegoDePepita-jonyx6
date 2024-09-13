@@ -2,17 +2,16 @@ import pepita.*
 import comidas.*
 import extras.*
 import wollok.game.*
-
 object tutorial1 {
-
+	
 	method iniciar() {
-		game.addVisual(nido)
+		game.addVisual(pepita)
 		game.addVisual(silvestre)
-		game.addVisualCharacter(pepita)
+		game.addVisual(nido)
+		config.configurarTeclas()
 	}
-
+  
 }
-
 object tutorial2 {
 
 	method iniciar() {
@@ -41,11 +40,12 @@ object tutorial3 {
 }
 
 object config {
-
+	
 	method configurarTeclas() {
 		keyboard.left().onPressDo({ pepita.irA(pepita.position().left(1))})
 		keyboard.right().onPressDo({ pepita.irA(pepita.position().right(1))})
-		// Completar para que se pueda mover arriba y abajo
+		keyboard.up().onPressDo({pepita.irA(pepita.position().up(1))})
+		keyboard.down().onPressDo({pepita.irA(pepita.position().down(1))})
 	}
 
 	method configurarColisiones() {
